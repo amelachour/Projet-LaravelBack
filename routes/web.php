@@ -45,6 +45,10 @@ use App\Http\Controllers\form_layouts\HorizontalForm;
 use App\Http\Controllers\tables\Basic as TablesBasic;
 use App\Http\Controllers\WasteController;
 use App\Http\Controllers\DisposalRecordController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\RecyclingCenterController;
+
+
 
 // Main Page Route
 Route::get('/', [Analytics::class, 'index'])->name('dashboard-analytics');
@@ -98,3 +102,26 @@ Route::get('/disposalRecords/{id}/edit', [DisposalRecordController::class, 'edit
 Route::delete('/disposalRecords/{id}', [DisposalRecordController::class, 'destroy'])->name('disposalRecords.destroy');
 Route::resource('disposalRecords', DisposalRecordController::class);
 Route::resource('disposalRecords', DisposalRecordController::class);
+
+// Categories de centre
+Route::resource('categories', CategoryController::class)->names([
+    'index' => 'CategorieCentre.index',
+    'create' => 'CategorieCentre.create',
+    'store' => 'CategorieCentre.store',
+    'show' => 'CategorieCentre.show',
+    'edit' => 'CategorieCentre.edit',
+    'update' => 'CategorieCentre.update',
+    'destroy' => 'CategorieCentre.destroy',
+]);
+
+// Centre de recyclage  
+route::resource('recycling_centers', RecyclingCenterController::class)->names([    
+    'index' => 'CentreRecyclage.index',    
+    'create' => 'CentreRecyclage.create',    
+    'store' => 'CentreRecyclage.store',    
+    'show' => 'CentreRecyclage.show',    
+    'edit' => 'CentreRecyclage.edit',    
+    'update' => 'CentreRecyclage.update',    
+    'destroy' => 'CentreRecyclage.destroy',
+]);
+
