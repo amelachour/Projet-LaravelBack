@@ -5,17 +5,20 @@
       "name": "Dashboards",
       "icon": "menu-icon tf-icons mdi mdi-home-outline",
       "slug": "dashboard",
-      "badge": [
-        "danger",
-        "5"
+      "badge": ["danger", ""],
+      "submenu": [
+        {
+          "url": "/",
+          "name": "Analytics",
+          "slug": "dashboard-analytics"
+        }
       ]
     },
+
     {
-      "menuHeader": "Apps & Pages"
+      "menuHeader": "Mon Profil"
     },
-    
-    
-    
+
     {
       "name": "Account Settings",
       "icon": "menu-icon tf-icons mdi mdi-account-outline",
@@ -63,70 +66,48 @@
         }
       ]
     },
+
     {
-      "name": "Misc",
-      "icon": "menu-icon tf-icons mdi mdi-cube-outline",
-      "slug": "pages-misc",
-      "submenu": [
-        {
-          "url": "pages/misc-error",
-          "name": "Error",
-          "slug": "pages-misc-error",
-          "target": "_blank"
-        },
-        {
-          "url": "pages/misc-under-maintenance",
-          "name": "Under Maintenance",
-          "slug": "pages-misc-under-maintenance",
-          "target": "_blank"
-        }
-      ]
+      "menuHeader": "J'Explore"
     },
     {
-      "menuHeader": "Components"
+      "name": "Centres de Recyclage",
+      "icon": "menu-icon tf-icons mdi mdi-factory",
+      "slug": "cards-basic",
+      "url": "cards/basic"
     },
     {
-      "menuHeader": "Forms & Tables"
+      "name": "Événements de Collecte",
+      "icon": "menu-icon tf-icons mdi mdi-calendar-check",
+      "slug": "cards-basic",
+      "url": "cards/basic"
     },
     {
-      "name": "Form Elements",
-      "icon": "menu-icon tf-icons mdi mdi-form-select",
-      "slug": "forms",
-      "submenu": [
-        {
-          "url": "forms/basic-inputs",
-          "name": "Basic Inputs",
-          "slug": "forms-basic-inputs"
-        },
-        {
-          "url": "forms/input-groups",
-          "name": "Input groups",
-          "slug": "forms-input-groups"
-        }
-      ]
+      "name": "Suivi des Déchets",
+      "icon": "menu-icon tf-icons mdi mdi-recycle",
+      "slug": "cards-basic",
+      "url": "wastes"
     },
     {
-      "name": "Form Layouts",
-      "icon": "menu-icon tf-icons mdi mdi-cube-outline",
-      "slug": "form-layouts",
-      "submenu": [
-        {
-          "url": "form/layouts-vertical",
-          "name": "Vertical Form",
-          "slug": "form-layouts-vertical"
-        },
-        {
-          "url": "form/layouts-horizontal",
-          "name": "Horizontal Form",
-          "slug": "form-layouts-horizontal"
-        }
-      ]
+      "name": "Elimination des Déchets",
+      "icon": "menu-icon tf-icons mdi mdi-trash-can",
+      "slug": "cards-basic",
+      "url": "disposalRecords"
+    },
+
+    {
+      "name": "Équipements de Recyclage",
+      "icon": "menu-icon tf-icons mdi mdi-tools",
+      "slug": "cards-basic",
+      "url": "cards/basic"
     },
     {
-      "url": "tables/basic",
-      "icon": "menu-icon tf-icons mdi mdi-table",
-      "name": "Tables",
-      "slug": "tables-basic"
+      "name": "Éducation et Sensibilisation",
+      "icon": "menu-icon tf-icons mdi mdi-book-open-page-variant",
+      "slug": "cards-basic",
+      "url": "cards/basic"
+
     }
+   
   ]
 }

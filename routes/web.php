@@ -43,6 +43,8 @@ use App\Http\Controllers\form_elements\InputGroups;
 use App\Http\Controllers\form_layouts\VerticalForm;
 use App\Http\Controllers\form_layouts\HorizontalForm;
 use App\Http\Controllers\tables\Basic as TablesBasic;
+use App\Http\Controllers\WasteController;
+use App\Http\Controllers\DisposalRecordController;
 
 // Main Page Route
 Route::get('/', [Analytics::class, 'index'])->name('dashboard-analytics');
@@ -50,11 +52,19 @@ Route::get('/', [Analytics::class, 'index'])->name('dashboard-analytics');
 
 
 // pages
-Route::get('/pages/account-settings-account', [AccountSettingsAccount::class, 'index'])->name('pages-account-settings-account');
-Route::get('/pages/account-settings-notifications', [AccountSettingsNotifications::class, 'index'])->name('pages-account-settings-notifications');
-Route::get('/pages/account-settings-connections', [AccountSettingsConnections::class, 'index'])->name('pages-account-settings-connections');
+Route::get('/pages/account-settings-account', [AccountSettingsAccount::class, 'index'])->name(
+  'pages-account-settings-account'
+);
+Route::get('/pages/account-settings-notifications', [AccountSettingsNotifications::class, 'index'])->name(
+  'pages-account-settings-notifications'
+);
+Route::get('/pages/account-settings-connections', [AccountSettingsConnections::class, 'index'])->name(
+  'pages-account-settings-connections'
+);
 Route::get('/pages/misc-error', [MiscError::class, 'index'])->name('pages-misc-error');
-Route::get('/pages/misc-under-maintenance', [MiscUnderMaintenance::class, 'index'])->name('pages-misc-under-maintenance');
+Route::get('/pages/misc-under-maintenance', [MiscUnderMaintenance::class, 'index'])->name(
+  'pages-misc-under-maintenance'
+);
 
 // authentication
 Route::get('/auth/login-basic', [LoginBasic::class, 'index'])->name('auth-login-basic');
@@ -71,3 +81,20 @@ Route::get('/form/layouts-horizontal', [HorizontalForm::class, 'index'])->name('
 
 // tables
 Route::get('/tables/basic', [TablesBasic::class, 'index'])->name('tables-basic');
+
+// waste
+
+Route::get('/wastes', [WasteController::class, 'index'])->name('wastes.index');
+Route::get('/wastes/create', [WasteController::class, 'create'])->name('wastes.create');
+Route::get('/wastes/{id}/edit', [WasteController::class, 'edit'])->name('wastes.edit');
+Route::delete('/wastes/{id}', [WasteController::class, 'destroy'])->name('wastes.destroy');
+Route::resource('wastes', WasteController::class);
+
+//enregistrement
+Route::get('/disposalRecords', [DisposalRecordController::class, 'index'])->name('disposalRecords.index');
+
+Route::get('/disposalRecords/create', [DisposalRecordController::class, 'create'])->name('disposalRecords.create');
+Route::get('/disposalRecords/{id}/edit', [DisposalRecordController::class, 'edit'])->name('disposalRecords.edit');
+Route::delete('/disposalRecords/{id}', [DisposalRecordController::class, 'destroy'])->name('disposalRecords.destroy');
+Route::resource('disposalRecords', DisposalRecordController::class);
+Route::resource('disposalRecords', DisposalRecordController::class);
