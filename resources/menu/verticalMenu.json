@@ -68,19 +68,32 @@
     },
 
     {
-      "menuHeader": "J'Explore"
+      "menuHeader": "Centres De Recyclage"
+    },
+    
+    {
+      "name": "Categories de centres de Recyclage",
+      "icon": "menu-icon tf-icons mdi mdi-factory",
+      "slug": "cards-basic",
+      "url": "categories"
     },
     {
       "name": "Centres de Recyclage",
       "icon": "menu-icon tf-icons mdi mdi-factory",
       "slug": "cards-basic",
-      "url": "cards/basic"
+      "url": "recycling_centers"
+    },
+    {
+      "menuHeader": "Événements"
     },
     {
       "name": "Événements de Collecte",
       "icon": "menu-icon tf-icons mdi mdi-calendar-check",
       "slug": "cards-basic",
       "url": "cards/basic"
+    },
+    {
+      "menuHeader": "Les Déchets"
     },
     {
       "name": "Suivi des Déchets",
@@ -94,6 +107,9 @@
       "slug": "cards-basic",
       "url": "disposalRecords"
     },
+    {
+      "menuHeader": "Les équipements"
+    },
 
     {
       "name": "Équipements de Recyclage",
@@ -102,10 +118,15 @@
       "url": "cards/basic"
     },
     {
+      "menuHeader": "Sensibilisation"
+    },
+    {
       "name": "Éducation et Sensibilisation",
       "icon": "menu-icon tf-icons mdi mdi-book-open-page-variant",
       "slug": "cards-basic",
       "url": "cards/basic"
+
     }
+   
   ]
 }
