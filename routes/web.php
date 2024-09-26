@@ -134,3 +134,9 @@ Route::get('/disposalRecords/{id}/edit', [DisposalRecordController::class, 'edit
 Route::delete('/disposalRecords/{id}', [DisposalRecordController::class, 'destroy'])->name('disposalRecords.destroy');
 Route::resource('disposalRecords', DisposalRecordController::class);
 Route::resource('disposalRecords', DisposalRecordController::class);
+Route::post('/disposal-records/{id}/process', [DisposalRecordController::class, 'destroy'])->name(
+  'disposalRecords.process'
+);
+Route::post('/disposal-records/{id}/process', [DisposalRecordController::class, 'process'])->name(
+  'disposalRecords.process'
+);

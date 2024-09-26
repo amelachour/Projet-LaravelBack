@@ -19,6 +19,7 @@ return new class extends Migration {
       $table->string('method');
       $table->date('disposal_date');
       $table->string('location');
+      $table->string('status')->default('en cours');
       $table->timestamps();
     });
   }
