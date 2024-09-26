@@ -103,6 +103,14 @@ Route::delete('/disposalRecords/{id}', [DisposalRecordController::class, 'destro
 Route::resource('disposalRecords', DisposalRecordController::class);
 Route::resource('disposalRecords', DisposalRecordController::class);
 
+Route::post('/disposal-records/{id}/process', [DisposalRecordController::class, 'destroy'])->name(
+  'disposalRecords.process'
+);
+Route::post('/disposal-records/{id}/process', [DisposalRecordController::class, 'process'])->name(
+  'disposalRecords.process'
+);
+
+
 // Categories de centre
 Route::resource('categories', CategoryController::class)->names([
     'index' => 'CategorieCentre.index',
@@ -124,4 +132,5 @@ route::resource('recycling_centers', RecyclingCenterController::class)->names([
     'update' => 'CentreRecyclage.update',    
     'destroy' => 'CentreRecyclage.destroy',
 ]);
+
 

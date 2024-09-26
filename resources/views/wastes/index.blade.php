@@ -8,9 +8,6 @@
    
 
 
-<a href="{{ route('wastes.create') }}" class="btn btn-success ">
-    <i class="mdi mdi-plus me-1"></i> Ajouter 
-</a>
 
 
 
@@ -25,6 +22,7 @@
             <th>Type</th>
             <th>Poids</th>
             <th>Date de création</th>
+            <th>Status</th>
             <th>Actions</th>
         </tr>
         </thead>
@@ -35,18 +33,22 @@
                 <td>{{ $waste->type }}</td>
                 <td>{{ $waste->weight }} kg</td>
                 <td>{{ $waste->created_at }}</td>
+                <td class="{{ $waste->status == 'éliminé' ? 'text-success' : 'text-danger' }}">
+    {{ ucfirst($waste->status) }}
+</td>
+
                
           <td>
                
-                <a href="{{ route('wastes.edit', $waste->id) }}" class="btn btn-icon btn-success btn-rounded" title="Modifier">
+                <!-- <a href="{{ route('wastes.edit', $waste->id) }}" class="btn btn-icon btn-success btn-rounded" title="Modifier">
                     <i class="mdi mdi-pencil"></i>
                 </a>
-                
+                 -->
                 
                 <form action="{{ route('wastes.destroy', $waste->id) }}" method="POST" style="display:inline;">
                     @csrf
                     @method('DELETE')
-                    <button type="submit" class="btn btn-icon btn-danger btn-rounded" title="Supprimer">
+                    <button type="submit" class="btn btn-icon text-danger btn-rounded" title="Supprimer">
                         <i class="mdi mdi-trash-can-outline"></i>
                     </button>
                 </form>
