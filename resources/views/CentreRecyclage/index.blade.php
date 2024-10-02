@@ -33,6 +33,7 @@
                         <td>{{ $center->name }}</td>
                         <td>{{ $center->location }}</td>
                         <td>{{ $center->contact_info }}</td>
+                        
                         <td>
                             <a href="{{ route('CentreRecyclage.show', $center->id) }}" class="btn btn-info btn-sm"><i class="mdi mdi-eye"></i></a>
                             <a href="{{ route('CentreRecyclage.edit', $center->id) }}" class="btn btn-warning btn-sm"><i class="mdi mdi-pencil"></i></a>
