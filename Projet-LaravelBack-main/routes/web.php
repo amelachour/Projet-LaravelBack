@@ -54,8 +54,6 @@ use App\Models\Equipment;
 // Main Page Route
 Route::get('/', [Analytics::class, 'index'])->name('dashboard-analytics');
 
-
-
 // pages
 Route::get('/pages/account-settings-account', [AccountSettingsAccount::class, 'index'])->name(
   'pages-account-settings-account'
@@ -106,24 +104,24 @@ Route::resource('disposalRecords', DisposalRecordController::class);
 
 // Categories de centre
 Route::resource('categories', CategoryController::class)->names([
-    'index' => 'CategorieCentre.index',
-    'create' => 'CategorieCentre.create',
-    'store' => 'CategorieCentre.store',
-    'show' => 'CategorieCentre.show',
-    'edit' => 'CategorieCentre.edit',
-    'update' => 'CategorieCentre.update',
-    'destroy' => 'CategorieCentre.destroy',
+  'index' => 'CategorieCentre.index',
+  'create' => 'CategorieCentre.create',
+  'store' => 'CategorieCentre.store',
+  'show' => 'CategorieCentre.show',
+  'edit' => 'CategorieCentre.edit',
+  'update' => 'CategorieCentre.update',
+  'destroy' => 'CategorieCentre.destroy',
 ]);
 
-// Centre de recyclage  
-route::resource('recycling_centers', RecyclingCenterController::class)->names([    
-    'index' => 'CentreRecyclage.index',    
-    'create' => 'CentreRecyclage.create',    
-    'store' => 'CentreRecyclage.store',    
-    'show' => 'CentreRecyclage.show',    
-    'edit' => 'CentreRecyclage.edit',    
-    'update' => 'CentreRecyclage.update',    
-    'destroy' => 'CentreRecyclage.destroy',
+// Centre de recyclage
+route::resource('recycling_centers', RecyclingCenterController::class)->names([
+  'index' => 'CentreRecyclage.index',
+  'create' => 'CentreRecyclage.create',
+  'store' => 'CentreRecyclage.store',
+  'show' => 'CentreRecyclage.show',
+  'edit' => 'CentreRecyclage.edit',
+  'update' => 'CentreRecyclage.update',
+  'destroy' => 'CentreRecyclage.destroy',
 ]);
 
 //equipement
@@ -133,7 +131,6 @@ Route::get('/equipment/create', [EquipmentController::class, 'create'])->name('e
 Route::get('/equipment/{id}/edit', [EquipmentController::class, 'edit'])->name('equipment.edit');
 Route::delete('/equipment/{id}', [EquipmentController::class, 'destroy'])->name('equipment.destroy');
 Route::get('/equipment/{id}', [EquipmentController::class, 'show'])->name('equipment.show');
-
 
 // Routes pour les maintenances
 
