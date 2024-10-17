@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', function () {
           <div class="card-body d-flex flex-column justify-content-center align-items-center">
             <h2 class="font-weight-bold" style="font-size: 1.5rem;">{{ $totalCenters }}</h2>
             <p class="mb-0">Total Centres</p>
-            <div class="icon mb-2">
+            <div class="icon mb-2 mt-3">
               <i class="fas fa-recycle fa-2x"></i>
             </div>
           </div>
@@ -69,8 +69,8 @@ document.addEventListener('DOMContentLoaded', function () {
         <div class="card text-white text-center shadow" style="background: linear-gradient(45deg, #28a745, #218838); height: 150px;">
           <div class="card-body d-flex flex-column justify-content-center align-items-center">
             <h2 class="font-weight-bold" style="font-size: 1.5rem;">{{ $topCategory }}</h2>
-            <p class="mb-0">Catégorie la plus populaire</p>
-            <div class="icon mb-2">
+            <p class="mb-0">Catégorie Populaire</p>
+            <div class="icon mb-2 mt-3">
               <i class="fas fa-star fa-2x"></i>
             </div>
           </div>
@@ -82,7 +82,7 @@ document.addEventListener('DOMContentLoaded', function () {
           <div class="card-body d-flex flex-column justify-content-center align-items-center">
             <h2 class="font-weight-bold" style="font-size: 1.5rem;">{{ $totalCategories }}</h2>
             <p class="mb-0">Total Catégories</p>
-            <div class="icon mb-2">
+            <div class="icon mb-2 mt-3">
               <i class="fas fa-tags fa-2x"></i>
             </div>
           </div>
@@ -102,6 +102,52 @@ document.addEventListener('DOMContentLoaded', function () {
     </div>
   </div>
 </div>
+
+
+<div class="col-xl-8 col-md-12 mb-4 mt-5" style="margin-left: 180px;">
+  <div class="row justify-content-center d-flex">
+    
+    <div class="col-md-4 mb-4 d-flex justify-content-center">
+      <div class="card text-white text-center shadow" style="background: linear-gradient(45deg, #17a2b8, #117a8b); height: 150px; width: 100%;">
+        <div class="card-body d-flex flex-column justify-content-center align-items-center">
+          <h2 class="font-weight-bold" style="font-size: 1.5rem;">{{ $totalWasteWeight }} kg</h2>
+          <p class="mb-0">Poids total des déchets</p>
+          <div class="icon mb-2 mt-3">
+            <i class="fas fa-weight-hanging fa-2x"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4 mb-4 d-flex justify-content-center">
+      <div class="card text-white text-center shadow" style="background: linear-gradient(45deg, #6f42c1, #5a31a8); height: 150px; width: 100%;">
+        <div class="card-body d-flex flex-column justify-content-center align-items-center">
+          <h2 class="font-weight-bold" style="font-size: 1.5rem;">{{ $totalDisposalRecords }}</h2>
+          <p class="mb-0">Total Éliminations</p>
+          <div class="icon mb-2 mt-3">
+            <i class="fas fa-trash fa-2x"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4 mb-4 d-flex justify-content-center">
+      <div class="card text-white text-center shadow" style="background: linear-gradient(45deg, #ff5722, #e64a19); height: 150px; width: 100%;">
+        <div class="card-body d-flex flex-column justify-content-center align-items-center">
+          <h2 class="font-weight-bold" style="font-size: 1.5rem;">{{ $commonDisposalMethod }}</h2>
+          <p class="mb-0">Méthode Courante</p>
+          <div class="icon mb-2 mt-3">
+            <i class="fas fa-recycle fa-2x"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
 
 <style>
     body {
