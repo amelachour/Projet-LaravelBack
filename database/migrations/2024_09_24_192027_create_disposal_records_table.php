@@ -31,4 +31,8 @@ return new class extends Migration {
   {
     Schema::dropIfExists('disposal_records');
   }
+<<<<<<< HEAD
 };
+=======
+};
+>>>>>>> origin/main

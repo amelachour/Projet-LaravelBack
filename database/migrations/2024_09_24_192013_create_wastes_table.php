@@ -30,4 +30,8 @@ return new class extends Migration {
   {
     Schema::dropIfExists('wastes');
   }
+<<<<<<< HEAD
 };
+=======
+};
+>>>>>>> origin/main

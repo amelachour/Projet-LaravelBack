@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Waste extends Model
 {
-  protected $fillable = ['type', 'weight', 'created_at', 'user_id', 'status'];
+  protected $fillable = ['type', 'weight', 'created_at', 'updated_at'];
 
   public function disposalRecords()
   {

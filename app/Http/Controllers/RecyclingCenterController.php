@@ -47,8 +47,6 @@ class RecyclingCenterController extends Controller
             ],
             'categories' => 'required|array',
             'categories.*' => 'exists:categories,id',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048', // Add validation for image
-
         ], [
             'name.regex' => 'Le nom doit contenir uniquement des lettres.',
             'name.min' => 'Le nom doit contenir au moins 6 lettres.',

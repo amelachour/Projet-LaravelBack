@@ -10,12 +10,9 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('recycling_centers', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->string('location');
-            $table->string('contact_info');
-            $table->string('image')->nullable();
+        Schema::create('center_material', function (Blueprint $table) {
+            $table->foreignId('recycling_center_id')->constrained('recycling_centers')->onDelete('cascade');
+            $table->foreignId('category_id')->constrained('categories')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -25,10 +22,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('recycling_centers');
+        Schema::dropIfExists('center_material');
     }
-<<<<<<< HEAD
 };
-=======
-};
->>>>>>> origin/main
