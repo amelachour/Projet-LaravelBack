@@ -27,8 +27,4 @@ return new class extends Migration {
     {
         Schema::dropIfExists('recycling_centers');
     }
-<<<<<<< HEAD
 };
-=======
-};
->>>>>>> origin/main
