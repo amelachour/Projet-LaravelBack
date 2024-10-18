@@ -26,7 +26,6 @@
                     <th>Méthode</th>
                     <th>Date d’Élimination</th>
                     <th>Lieu</th>
-<<<<<<< HEAD
                     <th>Status</th>
                     <th>Actions</th>
                 </tr>
@@ -146,39 +145,3 @@
 </script>
 
 @endsection
-=======
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-    @foreach($disposalRecords as $record)
-        <tr>
-            <td>{{ $record->waste->type }}</td>
-            <td>{{ $record->method }}</td>
-            <td>{{ $record->disposal_date }}</td>
-            <td>{{ $record->location }}</td>
-            <td>
-             
-                <a href="{{ route('disposalRecords.edit', $record->id) }}" class="btn btn-icon btn-primary btn-rounded" title="Modifier">
-                    <i class="mdi mdi-pencil"></i>
-                </a>
-                
-               
-                <form action="{{ route('disposalRecords.destroy', $record->id) }}" method="POST" style="display:inline;">
-                    @csrf
-                    @method('DELETE')
-                    <button type="submit" class="btn btn-icon btn-danger btn-rounded" title="Supprimer">
-                        <i class="mdi mdi-trash-can-outline"></i>
-                    </button>
-                </form>
-            </td>
-        </tr>
-    @endforeach
-</tbody>
-
-
-        </table>
-    </div>
-</div>
-@endsection
->>>>>>> 00db8a04fc1ea01894c7b1eb0b57bef85fb07a63
