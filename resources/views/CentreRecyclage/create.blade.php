@@ -45,11 +45,6 @@
                     <div class="text-danger">{{ $message }}</div>
                 @enderror
             </div>
-
-         
-            </div>
-           
-
             <button type="submit" class="btn btn-primary">Créer</button>
             <a href="{{ route('CentreRecyclage.index') }}" class="btn btn-secondary">Retour</a>
         </form>

@@ -47,13 +47,12 @@ use App\Http\Controllers\WasteController;
 use App\Http\Controllers\DisposalRecordController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\RecyclingCenterController;
-
-
+use App\Http\Controllers\EquipmentController;
+use App\Http\Controllers\MaintenanceController;
+use App\Models\Equipment;
 
 // Main Page Route
 Route::get('/', [Analytics::class, 'index'])->name('dashboard-analytics');
-
-
 
 // pages
 Route::get('/pages/account-settings-account', [AccountSettingsAccount::class, 'index'])->name(
@@ -103,34 +102,42 @@ Route::delete('/disposalRecords/{id}', [DisposalRecordController::class, 'destro
 Route::resource('disposalRecords', DisposalRecordController::class);
 Route::resource('disposalRecords', DisposalRecordController::class);
 
-Route::post('/disposal-records/{id}/process', [DisposalRecordController::class, 'destroy'])->name(
-  'disposalRecords.process'
-);
-Route::post('/disposal-records/{id}/process', [DisposalRecordController::class, 'process'])->name(
-  'disposalRecords.process'
-);
-
-
 // Categories de centre
 Route::resource('categories', CategoryController::class)->names([
-    'index' => 'CategorieCentre.index',
-    'create' => 'CategorieCentre.create',
-    'store' => 'CategorieCentre.store',
-    'show' => 'CategorieCentre.show',
-    'edit' => 'CategorieCentre.edit',
-    'update' => 'CategorieCentre.update',
-    'destroy' => 'CategorieCentre.destroy',
+  'index' => 'CategorieCentre.index',
+  'create' => 'CategorieCentre.create',
+  'store' => 'CategorieCentre.store',
+  'show' => 'CategorieCentre.show',
+  'edit' => 'CategorieCentre.edit',
+  'update' => 'CategorieCentre.update',
+  'destroy' => 'CategorieCentre.destroy',
 ]);
 
-// Centre de recyclage  
-route::resource('recycling_centers', RecyclingCenterController::class)->names([    
-    'index' => 'CentreRecyclage.index',    
-    'create' => 'CentreRecyclage.create',    
-    'store' => 'CentreRecyclage.store',    
-    'show' => 'CentreRecyclage.show',    
-    'edit' => 'CentreRecyclage.edit',    
-    'update' => 'CentreRecyclage.update',    
-    'destroy' => 'CentreRecyclage.destroy',
+// Centre de recyclage
+route::resource('recycling_centers', RecyclingCenterController::class)->names([
+  'index' => 'CentreRecyclage.index',
+  'create' => 'CentreRecyclage.create',
+  'store' => 'CentreRecyclage.store',
+  'show' => 'CentreRecyclage.show',
+  'edit' => 'CentreRecyclage.edit',
+  'update' => 'CentreRecyclage.update',
+  'destroy' => 'CentreRecyclage.destroy',
 ]);
 
+//equipement
+Route::resource('equipment', EquipmentController::class);
+Route::get('/equipment', [EquipmentController::class, 'index'])->name('equipment.index');
+Route::get('/equipment/create', [EquipmentController::class, 'create'])->name('equipment.create');
+Route::get('/equipment/{id}/edit', [EquipmentController::class, 'edit'])->name('equipment.edit');
+Route::delete('/equipment/{id}', [EquipmentController::class, 'destroy'])->name('equipment.destroy');
+Route::get('/equipment/{id}', [EquipmentController::class, 'show'])->name('equipment.show');
 
+// Routes pour les maintenances
+
+Route::get('/maintenance', [MaintenanceController::class, 'index'])->name('maintenance.index');
+Route::get('/maintenance/create', [MaintenanceController::class, 'create'])->name('maintenance.create');
+Route::post('/maintenance', [MaintenanceController::class, 'store'])->name('maintenance.store');
+Route::get('/maintenance/{maintenanceId}/edit', [MaintenanceController::class, 'edit'])->name('maintenance.edit');
+Route::put('/maintenance/{maintenanceId}', [MaintenanceController::class, 'update'])->name('maintenance.update');
+Route::delete('/maintenance/{maintenanceId}', [MaintenanceController::class, 'destroy'])->name('maintenance.destroy');
+Route::get('/maintenance/{maintenanceId}', [MaintenanceController::class, 'show'])->name('maintenance.show');

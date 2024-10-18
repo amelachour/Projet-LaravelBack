@@ -84,24 +84,4 @@ class DisposalRecordController extends Controller
       ->route('disposalRecords.index')
       ->with('success', 'Enregistrement d’élimination supprimé avec succès.');
   }
-
-  public function process($id)
-  {
-    $record = DisposalRecord::findOrFail($id);
-
-    if ($record->status == 'traitée') {
-      $record->status = 'en cours';
-      $record->waste->status = 'en attente';
-    } else {
-      $record->status = 'traitée';
-      $record->waste->status = 'éliminé';
-    }
-
-    $record->save();
-    $record->waste->save();
-
-    return redirect()
-      ->route('disposalRecords.index')
-      ->with('success', 'Le statut de la demande a été mis à jour.');
-  }
 }

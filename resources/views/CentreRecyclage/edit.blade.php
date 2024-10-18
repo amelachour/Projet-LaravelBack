@@ -45,8 +45,6 @@
                     <div class="text-danger">{{ $message }}</div>
                 @enderror
             </div>
-
-           
             <button type="submit" class="btn btn-primary">Mettre à Jour</button>
             <a href="{{ route('CentreRecyclage.index') }}" class="btn btn-secondary">Retour</a>
         </form>

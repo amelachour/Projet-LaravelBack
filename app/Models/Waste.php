@@ -7,14 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Waste extends Model
 {
-  protected $fillable = ['type', 'weight', 'created_at', 'user_id', 'status'];
+  protected $fillable = ['type', 'weight', 'created_at', 'updated_at'];
 
   public function disposalRecords()
   {
     return $this->hasMany(DisposalRecord::class);
-  }
-  public function user()
-  {
-    return $this->belongsTo(User::class);
   }
 }

@@ -33,7 +33,6 @@ class WasteController extends Controller
     );
 
     Waste::create($request->all());
-    System . out . println('Message de succès : ' + successMessage);
 
     return redirect()
       ->route('wastes.index')
@@ -79,28 +78,8 @@ class WasteController extends Controller
     $waste = Waste::findOrFail($id);
     $waste->delete();
 
-    return response()->json(['success' => true]);
-  }
-
-  public function statistics()
-  {
-    // Total des déchets
-    $totalWastes = Waste::count();
-
-    // Total des déchets éliminés
-    $totalDisposedWastes = DisposalRecord::whereHas('waste', function ($query) {
-      $query->where('status', 'éliminé');
-    })->count();
-
-    // Total des déchets en attente
-    $totalPendingWastes = DisposalRecord::whereHas('waste', function ($query) {
-      $query->where('status', 'en attente');
-    })->count();
-
-    // Passez les statistiques à la vue du tableau de bord
-    return view(
-      'content.dashboard.dashboards-analytics',
-      compact('totalWastes', 'totalDisposedWastes', 'totalPendingWastes')
-    );
+    return redirect()
+      ->route('wastes.index')
+      ->with('success', 'Déchet supprimé avec succès.');
   }
 }

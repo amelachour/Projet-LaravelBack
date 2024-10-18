@@ -14,11 +14,6 @@ return new class extends Migration {
       $table->id();
       $table->string('type');
       $table->float('weight', 8, 2);
-      $table
-        ->foreignId('user_id')
-        ->constrained()
-        ->onDelete('cascade');
-      $table->string('status')->default('-'); // Statut par défaut
       $table->timestamps(); // This includes both `created_at` and `updated_at`
     });
   }
