@@ -137,5 +137,4 @@ class EquipmentController extends Controller
     {
         return view('equipment.show', compact('equipment'));
     }
-
 }
