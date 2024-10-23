@@ -42,15 +42,15 @@ class Analytics extends Controller
             ->orderBy('month')
             ->pluck('count');
 
-        $months = Equipment::selectRaw('MONTHNAME(created_at) as month_name')
-            ->groupBy('month_name')
-            ->orderByRaw('MONTH(created_at)')
-            ->pluck('month_name');
+      $months = Equipment::selectRaw('MONTHNAME(created_at) as month_name, MONTH(created_at) as month_number')
+        ->groupBy('month_number', 'month_name')
+        ->orderBy('month_number')
+        ->pluck('month_name');
 
         return view('content.dashboard.dashboards-analytics', compact(
             'categoryNames', 'centerCounts', 'totalCenters', 'totalCategories',
             'topCategory', 'totalWasteWeight', 'totalDisposalRecords',
-            'commonDisposalMethod', 'monthlyEquipmentCounts', 'months', 
+            'commonDisposalMethod', 'monthlyEquipmentCounts', 'months',
             'equipmentWithMaintenanceCount', 'equipmentWithoutMaintenanceCount'
         ));
     }
