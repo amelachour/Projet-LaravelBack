@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\CommentController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\dashboard\Analytics;
 use App\Http\Controllers\layouts\WithoutMenu;
@@ -126,14 +128,14 @@ Route::resource('categories', CategoryController::class)->names([
     'destroy' => 'CategorieCentre.destroy',
 ]);
 
-// Centre de recyclage  
-route::resource('recycling_centers', RecyclingCenterController::class)->names([    
-    'index' => 'CentreRecyclage.index',    
-    'create' => 'CentreRecyclage.create',    
-    'store' => 'CentreRecyclage.store',    
-    'show' => 'CentreRecyclage.show',    
-    'edit' => 'CentreRecyclage.edit',    
-    'update' => 'CentreRecyclage.update',    
+// Centre de recyclage
+route::resource('recycling_centers', RecyclingCenterController::class)->names([
+    'index' => 'CentreRecyclage.index',
+    'create' => 'CentreRecyclage.create',
+    'store' => 'CentreRecyclage.store',
+    'show' => 'CentreRecyclage.show',
+    'edit' => 'CentreRecyclage.edit',
+    'update' => 'CentreRecyclage.update',
     'destroy' => 'CentreRecyclage.destroy',
 ]);
 
@@ -156,3 +158,7 @@ Route::get('/maintenance/{maintenanceId}/edit', [MaintenanceController::class, '
 Route::put('/maintenance/{maintenanceId}', [MaintenanceController::class, 'update'])->name('maintenance.update');
 Route::delete('/maintenance/{maintenanceId}', [MaintenanceController::class, 'destroy'])->name('maintenance.destroy');
 Route::get('/maintenance/{maintenanceId}', [MaintenanceController::class, 'show'])->name('maintenance.show');
+
+Route::resource('articles', ArticleController::class);
+Route::delete('/comments/{id}', [CommentController::class, 'destroy'])->name('comments.destroy');
+
