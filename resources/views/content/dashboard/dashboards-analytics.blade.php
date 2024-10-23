@@ -154,6 +154,7 @@ document.addEventListener('DOMContentLoaded', function () {
         </div>
       </div>
       @endforeach
+
     </div>
     <div class="col-md-4 mb-4">
         <div class="card text-white text-center shadow" style="background: linear-gradient(45deg, #28a745, #218838); height: 150px;">
@@ -189,6 +190,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 </div>
             </div>
         </div>
+
     </div>
 
 </body>

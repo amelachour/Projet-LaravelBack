@@ -17,6 +17,7 @@ class Analytics extends Controller
 {
     public function index()
     {
+
         // *** Statistiques sur les événements ***
         $totalEvents = Event::count();
         $totalParticipations = Participation::count();
@@ -26,14 +27,17 @@ class Analytics extends Controller
                                  ->get();
     
         // *** Centres de recyclage par catégorie ***
+
         $categories = Category::withCount('recyclingCenters')->get();
         $categoryNames = $categories->pluck('name');
         $centerCounts = $categories->pluck('recycling_centers_count');
         $totalCenters = RecyclingCenter::count();
         $totalCategories = Category::count();
+
         $topCategoryName = optional($categories->sortByDesc('recycling_centers_count')->first())->name ?? 'N/A';
     
         // *** Statistiques sur les déchets et enregistrements de disposition ***
+
         $totalWasteWeight = Waste::sum('weight');
         $totalDisposalRecords = DisposalRecord::count();
         $commonDisposalMethod = DisposalRecord::select('method')
@@ -42,16 +46,19 @@ class Analytics extends Controller
             ->limit(1)
             ->pluck('method')
             ->first();
+
     
         // *** Équipements et maintenance ***
         $equipmentWithMaintenanceCount = Equipment::with('maintenances')->count();
         $equipmentWithoutMaintenanceCount = Equipment::doesntHave('maintenances')->count();
     
         // *** Équipements par mois ***
+
         $monthlyEquipmentCounts = Equipment::selectRaw('MONTH(created_at) as month, COUNT(*) as count')
             ->groupBy('month')
             ->orderBy('month')
             ->pluck('count');
+
     
         $months = Equipment::selectRaw('MONTHNAME(created_at) as month_name')
             ->groupBy('month_name')

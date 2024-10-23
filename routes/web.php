@@ -53,8 +53,8 @@ use App\Http\Controllers\EquipmentController;
 
 use App\Http\Controllers\MaintenanceController;
 
-use App\Http\Controllers\EventController;
 
+use App\Http\Controllers\EventController;
 
 // Main Page Route
 Route::get('/', [Analytics::class, 'index'])->name('dashboard-analytics');

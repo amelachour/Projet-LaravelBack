@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class RecyclingCenter extends Model
 {
-    protected $fillable = ['name', 'location', 'contact_info'];
+    protected $fillable = ['name', 'location', 'contact_info', 'image']; 
 
     public function categories()
     {
