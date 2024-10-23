@@ -9,6 +9,7 @@
     <i class="mdi mdi-plus me-1"></i> Ajouter 
 </a>
 
+
 <div class="card mt-4">
     <h5 class="card-header">Liste des Événements</h5>
     <div class="table-responsive text-nowrap">

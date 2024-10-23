@@ -47,6 +47,7 @@ use App\Http\Controllers\WasteController;
 use App\Http\Controllers\DisposalRecordController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\ParticipationController;
+use App\Http\Controllers\StatisticsController;
 
 // Main Page Route
 Route::get('/', [Analytics::class, 'index'])->name('dashboard-analytics');
@@ -117,3 +118,4 @@ Route::resource('events', EventController::class);
 // Route pour retirer une participation
 Route::delete('events/{event}/participations/{participation}', [ParticipationController::class, 'destroy'])->name('participations.destroy');
 //Route::resource('participations', ParticipationController::class);
+Route::get('/statistics', [StatisticsController::class, 'index'])->name('statistics.index');

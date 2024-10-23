@@ -1,224 +1,130 @@
 @extends('layouts/contentNavbarLayout')
 
-@section('title', 'Dashboard - Analytics')
+@section('title', 'Statistiques des événements')
 
 @section('vendor-style')
-<link rel="stylesheet" href="{{asset('assets/vendor/libs/apex-charts/apex-charts.css')}}">
+<link rel="stylesheet" href="{{ asset('assets/vendor/libs/apex-charts/apex-charts.css') }}">
 @endsection
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
-@section('vendor-script')
-<script src="{{asset('assets/vendor/libs/apex-charts/apexcharts.js')}}"></script>
-@endsection
-
-@section('page-script')
-<script src="{{asset('assets/js/dashboards-analytics.js')}}"></script>
-@endsection
+<script src="{{ asset('assets/vendor/libs/apex-charts/apexcharts.js') }}"></script>
 
 @section('content')
-<div class="row gy-4">
-  
-  <!-- Weekly Overview Chart -->
-  <div class="col-xl-4 col-md-6">
-    <div class="card">
-      <div class="card-header">
-        <div class="d-flex justify-content-between">
-          <h5 class="mb-1">Weekly Overview</h5>
-          <div class="dropdown">
-            <button class="btn p-0" type="button" id="weeklyOverviewDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <i class="mdi mdi-dots-vertical mdi-24px"></i>
-            </button>
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="weeklyOverviewDropdown">
-              <a class="dropdown-item" href="javascript:void(0);">Refresh</a>
-              <a class="dropdown-item" href="javascript:void(0);">Share</a>
-              <a class="dropdown-item" href="javascript:void(0);">Update</a>
+<body>
+    <h4 class="py-3 mb-4 text-center"><span class="text-muted fw-light">Statistiques</span></h4>
+
+    
+    <div class="row justify-content-center mb-4">
+    <div class="col-md-4 mb-4">
+        <div class="card text-white text-center shadow" style="background: linear-gradient(45deg, #007bff, #0056b3); height: 150px;">
+            <div class="card-body d-flex flex-column justify-content-center align-items-center">
+                <h2 class="font-weight-bold" style="font-size: 1.5rem;">{{ $totalEvents }}</h2>
+                <p class="mb-0">Total Événements</p>
+                <div class="icon mb-2">
+                    <i class="fas fa-calendar-alt fa-2x"></i> 
+                </div>
             </div>
-          </div>
         </div>
-      </div>
-      <div class="card-body">
-        <div id="weeklyOverviewChart"></div>
-        <div class="mt-1 mt-md-3">
-          <div class="d-flex align-items-center gap-3">
-            <h3 class="mb-0">45%</h3>
-            <p class="mb-0">Your sales performance is 45% 😎 better compared to last month</p>
-          </div>
-          <div class="d-grid mt-3 mt-md-4">
-            <button class="btn btn-primary" type="button">Details</button>
-          </div>
+    </div>
+
+  
+    <div class="col-md-4 mb-4">
+        <div class="card text-white text-center shadow" style="background: linear-gradient(45deg, #28a745, #218838); height: 150px;">
+            <div class="card-body d-flex flex-column justify-content-center align-items-center">
+                <h2 class="font-weight-bold" style="font-size: 1.5rem;">{{ $totalParticipations }}</h2>
+                <p class="mb-0">Total Participations</p>
+                <div class="icon mb-2">
+                    <i class="fas fa-users fa-2x"></i> 
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
-  <!--/ Weekly Overview Chart -->
-
-
-
-
-  <!-- Data Tables -->
-  <div class="col-12">
-    <div class="card">
-      <div class="table-responsive">
-        <table class="table">
-          <thead class="table-light">
-            <tr>
-              <th class="text-truncate">User</th>
-              <th class="text-truncate">Email</th>
-              <th class="text-truncate">Role</th>
-              <th class="text-truncate">Age</th>
-              <th class="text-truncate">Salary</th>
-              <th class="text-truncate">Status</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>
-                <div class="d-flex align-items-center">
-                  <div class="avatar avatar-sm me-3">
-                    <img src="{{asset('assets/img/avatars/1.png')}}" alt="Avatar" class="rounded-circle">
-                  </div>
-                  <div>
-                    <h6 class="mb-0 text-truncate">Jordan Stevenson</h6>
-                    <small class="text-truncate">@amiccoo</small>
-                  </div>
-                </div>
-              </td>
-              <td class="text-truncate">susanna.Lind57@gmail.com</td>
-              <td class="text-truncate"><i class="mdi mdi-laptop mdi-24px text-danger me-1"></i> Admin</td>
-              <td class="text-truncate">24</td>
-              <td class="text-truncate">34500$</td>
-              <td><span class="badge bg-label-warning rounded-pill">Pending</span></td>
-            </tr>
-            <tr>
-              <td>
-                <div class="d-flex align-items-center">
-                  <div class="avatar avatar-sm me-3">
-                    <img src="{{asset('assets/img/avatars/3.png')}}" alt="Avatar" class="rounded-circle">
-                  </div>
-                  <div>
-                    <h6 class="mb-0 text-truncate">Benedetto Rossiter</h6>
-                    <small class="text-truncate">@brossiter15</small>
-                  </div>
-                </div>
-              </td>
-              <td class="text-truncate">estelle.Bailey10@gmail.com</td>
-              <td class="text-truncate"><i class="mdi mdi-pencil-outline text-info mdi-24px me-1"></i> Editor</td>
-              <td class="text-truncate">29</td>
-              <td class="text-truncate">64500$</td>
-              <td><span class="badge bg-label-success rounded-pill">Active</span></td>
-            </tr>
-            <tr>
-              <td>
-                <div class="d-flex align-items-center">
-                  <div class="avatar avatar-sm me-3">
-                    <img src="{{asset('assets/img/avatars/2.png')}}" alt="Avatar" class="rounded-circle">
-                  </div>
-                  <div>
-                    <h6 class="mb-0 text-truncate">Bentlee Emblin</h6>
-                    <small class="text-truncate">@bemblinf</small>
-                  </div>
-                </div>
-              </td>
-              <td class="text-truncate">milo86@hotmail.com</td>
-              <td class="text-truncate"><i class="mdi mdi-cog-outline text-warning mdi-24px me-1"></i> Author</td>
-              <td class="text-truncate">44</td>
-              <td class="text-truncate">94500$</td>
-              <td><span class="badge bg-label-success rounded-pill">Active</span></td>
-            </tr>
-            <tr>
-              <td>
-                <div class="d-flex align-items-center">
-                  <div class="avatar avatar-sm me-3">
-                    <img src="{{asset('assets/img/avatars/5.png')}}" alt="Avatar" class="rounded-circle">
-                  </div>
-                  <div>
-                    <h6 class="mb-0 text-truncate">Bertha Biner</h6>
-                    <small class="text-truncate">@bbinerh</small>
-                  </div>
-                </div>
-              </td>
-              <td class="text-truncate">lonnie35@hotmail.com</td>
-              <td class="text-truncate"><i class="mdi mdi-pencil-outline text-info mdi-24px me-1"></i> Editor</td>
-              <td class="text-truncate">19</td>
-              <td class="text-truncate">4500$</td>
-              <td><span class="badge bg-label-warning rounded-pill">Pending</span></td>
-            </tr>
-            <tr>
-              <td>
-                <div class="d-flex align-items-center">
-                  <div class="avatar avatar-sm me-3">
-                    <img src="{{asset('assets/img/avatars/4.png')}}" alt="Avatar" class="rounded-circle">
-                  </div>
-                  <div>
-                    <h6 class="mb-0 text-truncate">Beverlie Krabbe</h6>
-                    <small class="text-truncate">@bkrabbe1d</small>
-                  </div>
-                </div>
-              </td>
-              <td class="text-truncate">ahmad_Collins@yahoo.com</td>
-              <td class="text-truncate"><i class="mdi mdi-chart-donut mdi-24px text-success me-1"></i> Maintainer</td>
-              <td class="text-truncate">22</td>
-              <td class="text-truncate">10500$</td>
-              <td><span class="badge bg-label-success rounded-pill">Active</span></td>
-            </tr>
-            <tr>
-              <td>
-                <div class="d-flex align-items-center">
-                  <div class="avatar avatar-sm me-3">
-                    <img src="{{asset('assets/img/avatars/7.png')}}" alt="Avatar" class="rounded-circle">
-                  </div>
-                  <div>
-                    <h6 class="mb-0 text-truncate">Bradan Rosebotham</h6>
-                    <small class="text-truncate">@brosebothamz</small>
-                  </div>
-                </div>
-              </td>
-              <td class="text-truncate">tillman.Gleason68@hotmail.com</td>
-              <td class="text-truncate"><i class="mdi mdi-pencil-outline text-info mdi-24px me-1"></i> Editor</td>
-              <td class="text-truncate">50</td>
-              <td class="text-truncate">99500$</td>
-              <td><span class="badge bg-label-warning rounded-pill">Pending</span></td>
-            </tr>
-            <tr>
-              <td>
-                <div class="d-flex align-items-center">
-                  <div class="avatar avatar-sm me-3">
-                    <img src="{{asset('assets/img/avatars/6.png')}}" alt="Avatar" class="rounded-circle">
-                  </div>
-                  <div>
-                    <h6 class="mb-0 text-truncate">Bree Kilday</h6>
-                    <small class="text-truncate">@bkildayr</small>
-                  </div>
-                </div>
-              </td>
-              <td class="text-truncate">otho21@gmail.com</td>
-              <td class="text-truncate"><i class="mdi mdi-account-outline mdi-24px text-primary me-1"></i> Subscriber</td>
-              <td class="text-truncate">23</td>
-              <td class="text-truncate">23500$</td>
-              <td><span class="badge bg-label-success rounded-pill">Active</span></td>
-            </tr>
-            <tr class="border-transparent">
-              <td>
-                <div class="d-flex align-items-center">
-                  <div class="avatar avatar-sm me-3">
-                    <img src="{{asset('assets/img/avatars/1.png')}}" alt="Avatar" class="rounded-circle">
-                  </div>
-                  <div>
-                    <h6 class="mb-0 text-truncate">Breena Gallemore</h6>
-                    <small class="text-truncate">@bgallemore6</small>
-                  </div>
-                </div>
-              </td>
-              <td class="text-truncate">florencio.Little@hotmail.com</td>
-              <td class="text-truncate"><i class="mdi mdi-account-outline mdi-24px text-primary me-1"></i> Subscriber</td>
-              <td class="text-truncate">33</td>
-              <td class="text-truncate">20500$</td>
-              <td><span class="badge bg-label-secondary rounded-pill">Inactive</span></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
     </div>
-  </div>
-  <!--/ Data Tables -->
-</div>
+
+   
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card mb-3">
+                <div class="card-header text-center">Participants par Événement</div>
+                <div class="card-body">
+                    <div id="participantsChart" class="d-flex justify-content-center"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card mb-3">
+                <div class="card-header text-center">Événements par Lieu</div>
+                <div class="card-body">
+                    <div id="locationsChart" class="d-flex justify-content-center"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const participantsOptions = {
+            chart: {
+                type: 'bar',
+                height: 350,
+                animations: {
+                    enabled: true,
+                    easing: 'easeinout',
+                    speed: 800,
+                },
+            },
+            series: [{
+                name: 'Nombre de Participants',
+                data: @json($participantsPerEvent->pluck('participations_count'))
+            }],
+            xaxis: {
+                categories: @json($participantsPerEvent->pluck('name')),
+            },
+            tooltip: {
+                shared: true,
+                intersect: false,
+            },
+            colors: ['#ADD8E6'], 
+            dataLabels: {
+                enabled: true,
+                style: {
+                    colors: ['#fff']
+                }
+            }
+        };
+
+        const participantsChart = new ApexCharts(document.querySelector("#participantsChart"), participantsOptions);
+        participantsChart.render();
+        const locationsOptions = {
+            chart: {
+                type: 'pie',
+                height: 350,
+                animations: {
+                    enabled: true,
+                    easing: 'easeinout',
+                    speed: 800,
+                },
+            },
+            series: @json($eventsByLocation->pluck('total')),
+            labels: @json($eventsByLocation->pluck('location')),
+            tooltip: {
+                y: {
+                    formatter: function(val) {
+                        return val + " Événement(s)";
+                    }
+                }
+            },
+            colors: ['#D8BFD8', '#98FB98', '#FFB6C1'], 
+        };
+
+        const locationsChart = new ApexCharts(document.querySelector("#locationsChart"), locationsOptions);
+        locationsChart.render();
+    });
+</script>
 @endsection
+
