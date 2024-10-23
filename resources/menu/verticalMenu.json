@@ -5,7 +5,10 @@
       "name": "Dashboards",
       "icon": "menu-icon tf-icons mdi mdi-home-outline",
       "slug": "dashboard",
-      "badge": ["danger", ""],
+      "badge": [
+        "danger",
+        ""
+      ],
       "submenu": [
         {
           "url": "/",
@@ -14,11 +17,18 @@
         }
       ]
     },
-
+    {
+      "menuHeader": "Articles"
+    },
+    {
+      "name": "Gestion des Articles",
+      "icon": "menu-icon tf-icons mdi mdi-newspaper",
+      "slug": "articles",
+      "url": "articles"
+    },
     {
       "menuHeader": "Mon Profil"
     },
-
     {
       "name": "Account Settings",
       "icon": "menu-icon tf-icons mdi mdi-account-outline",
@@ -66,11 +76,9 @@
         }
       ]
     },
-
     {
       "menuHeader": "Centres De Recyclage"
     },
-    
     {
       "name": "Categories de centres de Recyclage",
       "icon": "menu-icon tf-icons mdi mdi-factory",
@@ -116,14 +124,12 @@
       "slug": "cards-basic",
       "url": "equipment"
     },
-    
     {
       "name": "Maintenance des Équipements",
-      "icon": "menu-icon tf-icons mdi mdi-wrench", 
+      "icon": "menu-icon tf-icons mdi mdi-wrench",
       "slug": "maintenance",
-      "url": "maintenance" 
+      "url": "maintenance"
     },
-    
     {
       "menuHeader": "Sensibilisation"
     },
@@ -132,8 +138,6 @@
       "icon": "menu-icon tf-icons mdi mdi-book-open-page-variant",
       "slug": "cards-basic",
       "url": "cards/basic"
-
     }
-   
   ]
 }

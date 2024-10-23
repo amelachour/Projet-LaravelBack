@@ -59,6 +59,7 @@ class Analytics extends Controller
             ->orderBy('month')
             ->pluck('count');
 
+
     
         $months = Equipment::selectRaw('MONTHNAME(created_at) as month_name')
             ->groupBy('month_name')
@@ -83,5 +84,6 @@ class Analytics extends Controller
             'monthlyEquipmentCounts' => $monthlyEquipmentCounts,
             'months' => $months
         ]);
+
     }
 }    
