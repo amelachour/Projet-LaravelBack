@@ -90,7 +90,7 @@
       "name": "Événements de Collecte",
       "icon": "menu-icon tf-icons mdi mdi-calendar-check",
       "slug": "cards-basic",
-      "url": "cards/basic"
+      "url": "events"
     },
     {
       "menuHeader": "Les Déchets"
