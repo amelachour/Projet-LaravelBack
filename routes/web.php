@@ -56,6 +56,8 @@ use App\Http\Controllers\EquipmentController;
 use App\Http\Controllers\MaintenanceController;
 
 
+use App\Http\Controllers\EventController;
+
 // Main Page Route
 Route::get('/', [Analytics::class, 'index'])->name('dashboard-analytics');
 
@@ -159,6 +161,24 @@ Route::put('/maintenance/{maintenanceId}', [MaintenanceController::class, 'updat
 Route::delete('/maintenance/{maintenanceId}', [MaintenanceController::class, 'destroy'])->name('maintenance.destroy');
 Route::get('/maintenance/{maintenanceId}', [MaintenanceController::class, 'show'])->name('maintenance.show');
 
+
+
+//events
+// Liste des événements
+Route::get('/events', [EventController::class, 'index'])->name('events.index');
+Route::get('/events/create', [EventController::class, 'create'])->name('events.create');
+Route::post('/events/create', [EventController::class, 'store'])->name('events.store');
+Route::put('/events/{id}/edit', [EventController::class, 'update'])->name('events.update');
+Route::get('/events/{id}', [EventController::class, 'edit'])->name('events.edit');
+Route::delete('/events/{id}', [EventController::class, 'destroy'])->name('events.destroy');
+Route::get('/events/{id}', [EventController::class, 'show'])->name('events.show');
+
+Route::resource('events', EventController::class);
+
+// Route pour retirer une participation
+Route::delete('events/{event}/participations/{participation}', [ParticipationController::class, 'destroy'])->name('participations.destroy');
+
 Route::resource('articles', ArticleController::class);
 Route::delete('/comments/{id}', [CommentController::class, 'destroy'])->name('comments.destroy');
+
 
