@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\NewPostNotification;
 use App\Models\Article;
 use App\Models\Post;
 use App\Models\Media;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class ArticleController extends Controller
 {
@@ -35,7 +38,7 @@ class ArticleController extends Controller
 
     // Create the article
     $article = Post::create([
-      'user_id' => 4,
+      'user_id' => 4, // Assuming this is the admin user ID
       'title' => $request->input('title'),
       'body' => $request->input('body'),
       'location' => $request->input('location'),
@@ -60,9 +63,16 @@ class ArticleController extends Controller
       ]);
     }
 
+    // Fetch all users except the one with ID 1
+    $users = User::where('id', '!=', 1)->get();
+
+    // Send email notification to all users
+    foreach ($users as $user) {
+      Mail::to($user->email)->send(new NewPostNotification($article));
+    }
+
     return redirect()->route('articles.index')->with('success', 'Article ajouté avec succès');
   }
-
   // Display the specified article
   public function show(Post $article)
   {
